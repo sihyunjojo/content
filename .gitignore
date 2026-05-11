@@ -285,7 +285,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
+embedding-api/.env
 .venv
 env/
 venv/
@@ -336,4 +336,12 @@ pyrightconfig.json
 
 # End of https://www.toptal.com/developers/gitignore/api/pycharm+all,intellij+all,python,gitbook
 
-.env
+embedding-api/.env
+
+# 가상환경 무시
+.venv/
+venv/
+ENV/
+
+# 로컬 임시 데이터 폴더 전체 무시 (SQLite, ChromaDB)
+data/
