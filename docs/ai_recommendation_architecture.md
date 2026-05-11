@@ -9,7 +9,7 @@
 
 ```
 [ 데이터 수집 단계 ]
-유튜브/라프텔 데이터 수집 ──> `FastAPI 적재 스크립트` ──> `OpenAI Embedding` ──> `벡터 DB (Chroma/Qdrant)`
+유튜브/라프텔 데이터 수집 ──> `FastAPI 적재 스크립트` ──> `Embedding` ──> `벡터 DB (Chroma/Qdrant)`
 
 [ 실시간 추천 단계 ]
 사용자 질문 ──> `FastAPI 서버` ──> 질문 임베딩 ──> `벡터 DB 검색 (Retrieval)` ──> `LLM (Generation)` ──> 추천 답변 제공
@@ -39,9 +39,9 @@
   * 사용자의 시청 기록, 북마크, 전체 영상 메타데이터 등의 기본 정보 관리.
 
 ### 🤖 AI & LLM 모델
-* **임베딩 모델:** `OpenAI text-embedding-3-small`
+* **임베딩 모델:** `현재 미정`
   * 저비용, 고성능의 텍스트-벡터 변환 모델.
-* **생성 모델 (LLM):** `OpenAI gpt-4o-mini`
+* **생성 모델 (LLM):** `미정`
   * 가성비가 뛰어나며 맥락을 이해한 자연스러운 추천 코멘트 작성에 특화.
 
 ---
