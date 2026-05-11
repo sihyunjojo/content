@@ -11,7 +11,9 @@ class Settings(BaseSettings):
 
     # 💡 데이터베이스 및 벡터 DB 관련 설정 변수 추가
     DATABASE_URL: str
-    CHROMADB_PATH: str
+    CHROMADB_HOST: str
+    CHROMADB_PORT: int
+    CHROMADB_ALLOW_RESET: bool = False # 기본값은 False로 설정하여 안전성을 높입니다.
 
     model_config = SettingsConfigDict(
         env_file=ENV_FILE_PATH,
