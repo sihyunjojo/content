@@ -15,6 +15,9 @@ class Settings(BaseSettings):
     CHROMADB_PORT: int
     CHROMADB_ALLOW_RESET: bool = False # 기본값은 False로 설정하여 안전성을 높입니다.
 
+    # 임베딩 관련 설정 (PoC 문서 참고하여 BGE-M3를 기본값으로 고려, 자유롭게 변경 가능)
+    EMBEDDING_MODEL_NAME: str = "BAAI/bge-m3"
+
     model_config = SettingsConfigDict(
         env_file=ENV_FILE_PATH,
         env_file_encoding="utf-8",
