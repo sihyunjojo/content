@@ -1,6 +1,7 @@
 from typing import Generator
 from app.core.database import SessionLocal
 
+
 def get_db() -> Generator:
     """
     API 요청이 들어올 때 DB 세션을 생성하고,

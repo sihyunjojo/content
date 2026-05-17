@@ -1,6 +1,7 @@
 import sqlite3
 from app.core.config import settings, PROJECT_ROOT
 
+
 class SQLiteRepository:
     def __init__(self):
         """
@@ -9,10 +10,10 @@ class SQLiteRepository:
         """
         # 1. 상대 경로를 가져옵니다. (예: ./test.db)
         relative_db_path = settings.DATABASE_URL.split("///")[1]
-        
+
         # 2. 프로젝트 루트를 기준으로 절대 경로를 생성합니다.
         self.db_path = PROJECT_ROOT / relative_db_path
-        
+
         # 3. 데이터베이스 파일이 위치할 디렉터리가 존재하지 않으면 생성합니다.
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
 
