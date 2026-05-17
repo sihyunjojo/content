@@ -1,8 +1,9 @@
 import os
-from pathlib import Path
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
 from app.core.config import settings
+import chromadb
+from chromadb.config import Settings as ChromaSettings
 
 # 💡 SQLite 설정인 경우, 데이터베이스 파일이 저장될 폴더가 없다면 자동으로 만들어줍니다.
 if settings.DATABASE_URL.startswith("sqlite"):
@@ -22,3 +23,16 @@ engine = create_engine(
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
+
+# ChromaDB Client Setup
+chroma_client = chromadb.HttpClient(
+    host=settings.CHROMADB_HOST,
+    port=settings.CHROMADB_PORT,
+    settings=ChromaSettings(allow_reset=settings.CHROMADB_ALLOW_RESET)
+)
+
+
+# 2. 헬스체크 및 연결 확인용 유틸리티 함수
+def get_chroma_heartbeat():
+    """ChromaDB 서버의 상태를 확인합니다."""
+    return chroma_client.heartbeat()
